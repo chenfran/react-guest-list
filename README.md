@@ -29,6 +29,31 @@ The default view should show all guests in the list.
 
 Some features are similar to [this example](https://todomvc.com/examples/react/dist/) - check this out to see how the app should generally behave.
 
+## Audience & Need
+
+This chapter answers the following questions regarding this project:
+
+- Who are the people you are trying to reach or provide services for?
+  The client is called 'Drone'. It is a large company with many and high expectations. Their products are high quality in (semantic) coding and design. Therefore, it is crucial to meet their quality standards.
+
+  Drone is looking for an app for their event managers who organise a lot of events and need an app to manage their guest list in a quick and easy way.
+
+  - As an event manager who receives email registrations from guests, I want to add a guest's first and last name to a guest list so that I always have an updated guest list. The added guest will appear in a guest list with all other guests.
+  - As an event manager, I want to be able to change the status of the guest between attending and not attending, so that I have an overview of all guests who have or have not attended an event.
+  - As an event manager I want to be able to remove a guest from the guest list regardless of their status, so that I always have an updated guest list.
+
+- What problem are you solving for them?
+  Drone wants a digital guest list. For now, they use pencil and paper to create a guest list.
+
+## TODOs
+
+- [ ] Watch the recordings from Lukas' class from 24th of May
+- [ ] Create input fields for the first and last name
+- [ ] Research for the kdb tag from the description
+- [ ] Create a table
+- [ ] Research for the useEffect to fetch data from an API
+- [ ] Research for the useEffect to store date into an API
+
 ## Stretch TODOs
 
 - [ ] Button to delete all attending guests
