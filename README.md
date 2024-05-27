@@ -45,14 +45,55 @@ This chapter answers the following questions regarding this project:
 - What problem are you solving for them?
   Drone wants a digital guest list. For now, they use pencil and paper to create a guest list.
 
+## Additional comments on the code
+
+1. Create a copy of the current state
+2. Update the copy created in step 1
+3. Set the state to the copy of the old state
+
+```
+const [users, setUsers] = useState(initialUsers);
+
+const newUser = {};
+
+// Add new User:
+const newUsers = [...users];
+newUsers.push(newUser);
+setUsers(newUsers);
+
+OR
+setUsers([...users, newUser]);
+
+OR
+
+// Delete last user
+const newUsers = [...users];
+newGuests.pop();
+setUsers(newUsers);
+
+OR
+
+// Change user name to Antje
+const newUsers = [...users];
+newUsers[0].name.first = 'Antje';
+setUsers(newUsers);
+```
+
 ## TODOs
 
-- [ ] Watch the recordings from Lukas' class from 24th of May
-- [ ] Create input fields for the first and last name
-- [ ] Research for the kdb tag from the description
+- [x] Create a mockup on figma
+- [ ] Watch the recordings from Lukas' class from 24th of May (useful information is creating a checkbox, adding user, useEffect)
+- [x] Create input fields for the first and last name
+  - [ ] Create a onKeyPress or onKeyDown event for the input field of the last name, so user can press <kdb>Return</kdb> and the guest will be added to the guest list below
+  - [ ] Research for the kdb tag from the description
+- [ ] Create checkboxes next to every guest that can be checked and unchecked
+- [ ] Create a remove button that deletes the guest
+  - [ ] Create a function to delete guests
 - [ ] Create a table
+  - [ ] All guests should be displayed in this table
 - [ ] Research for the useEffect to fetch data from an API
 - [ ] Research for the useEffect to store date into an API
+- [ ] Add styling
 
 ## Stretch TODOs
 
@@ -76,3 +117,7 @@ This chapter answers the following questions regarding this project:
 - [ ] Preflight runs without errors in your project
 - [ ] [Drone bot](https://learn.upleveled.io/pern-extensive-immersive/modules/cheatsheet-tasks/#upleveled-drone) has been tagged and responded with a passing message
 - [ ] Correct GitHub commit message format (see [Writing Commit Messages](https://learn.upleveled.io/pern-extensive-immersive/modules/cheatsheet-git-github/#writing-commit-messages))
+
+```
+
+```
