@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import styles from './App.module.scss';
 
 const guestList = [
   {
@@ -22,7 +21,6 @@ const guestList = [
 export default function App() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [users, setUsers] = useState(guestList);
   const [attendanceStatus, setAttendanceStatus] = useState(false);
 
   return (
