@@ -16,22 +16,20 @@ export default function GuestForm({ addGuest }) {
 
   return (
     <div>
-      <form className="TodoForm" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="First name">First name</label>
         <input
-          className="todo-input"
           value={firstName}
           placeholder="First name"
           onChange={(event) => setFirstName(event.target.value)}
         />
         <label htmlFor="Last name">Last name</label>
         <input
-          className="todo-input"
           value={lastName}
           placeholder="Last name"
           onChange={(event) => setLastName(event.target.value)}
         />
-        <button className="todo-btn">Add Guest</button>
+        <button>Add Guest</button>
       </form>
     </div>
   );

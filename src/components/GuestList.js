@@ -26,7 +26,7 @@ export default function TodoWrapper() {
   }
 
   return (
-    <div className="TodoWrapper">
+    <div>
       <h1>Add guests to your PARTEY!</h1>
       <GuestForm addGuest={addGuest} />
       {guests.map((guest) => (

@@ -1,6 +1,6 @@
 export default function Guest({ name, toggleAttended, deleteGuest }) {
   return (
-    <div className="Todo">
+    <div>
       <p
         role="presentation"
         onClick={() => toggleAttended(name.id)}
