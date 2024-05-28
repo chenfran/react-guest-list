@@ -1,11 +1,12 @@
 export default function Guest({ name, toggleAttended, deleteGuest }) {
   return (
     <div>
-      <p
-        role="presentation"
+      <input
+        aria-label={`${name} attending status`}
+        type="checkbox"
         onClick={() => toggleAttended(name.id)}
-        className={name.completed ? 'completed' : ''}
-      >
+      />
+      <p role="presentation" className={name.completed ? 'completed' : ''}>
         {name.name}
       </p>
       <div>
