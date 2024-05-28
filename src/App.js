@@ -1,6 +1,6 @@
 import './App.css';
 import { useState } from 'react';
-import TodoWrapper from './components/TodoWrapper';
+import TodoWrapper from './components/GuestList';
 
 export default function App() {
   return <TodoWrapper />;
