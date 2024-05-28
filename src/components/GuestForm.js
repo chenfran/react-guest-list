@@ -4,13 +4,12 @@ export default function GuestForm({ addGuest }) {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
+  // A function that allows the user to press RETURN on their keyboard and have their input submitted and displayed.
   function handleSubmit(event) {
-    event.preventDefault();
-
-    addGuest(firstName + ' ' + lastName);
-
+    event.preventDefault(); // To prevent page reloading
+    addGuest(firstName + ' ' + lastName); // 'addGuest' is used as a prop from the GuestList function
+    // This clears the input fields
     setFirstName('');
-
     setLastName('');
   }
 

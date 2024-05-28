@@ -79,6 +79,14 @@ newUsers[0].name.first = 'Antje';
 setUsers(newUsers);
 ```
 
+### Difference between e.target vs e.currentTarget
+
+e. target contains a reference to the element that triggered the event, while e. currentTarget contains a reference to the element that the event handler is attached to.
+
+One of the key differences between e.currentTarget and e.target is that the value of e.target can change during event propagation, while the value of e.currentTarget remains the same.
+
+### Delete Functionality in React
+
 ## TODOs
 
 - [x] Create a mockup on figma
