@@ -90,7 +90,7 @@ export default function App() {
   }
 
   return (
-    <div>
+    <div data-test-id="guest">
       <h1>Add guests to your PARTEY!</h1>
       <div>
         <form onSubmit={(event) => event.preventDefault()}>
