@@ -52,6 +52,19 @@ export default function App() {
   // PUT Method to update information
 
   // DELETE Method to delete information
+  async function deleteGuestFromList(id) {
+    if (id.length > 0) {
+      const response = await fetch(`${baseUrl}/guests/${id}`, {
+        method: 'DELETE',
+      });
+      const deletedGuest = await response.json();
+      const currentGuestList = [...guests];
+      const newGuestList = currentGuestList.filter(
+        (guest) => guest.id !== deletedGuest.id,
+      );
+      setGuests(newGuestList);
+    }
+  }
 
   // function handleSubmit(event) {
   //   event.preventDefault();
@@ -115,7 +128,9 @@ export default function App() {
           <p>{guest.attending ? 'attending' : 'not attending'}</p>
           <p>{guest.guest}</p>
           <div>
-            <button onClick={() => deleteGuest(guest.id)}>Remove</button>
+            <button onClick={() => deleteGuestFromList(guest.id)}>
+              Remove
+            </button>
           </div>
         </div>
       ))}
