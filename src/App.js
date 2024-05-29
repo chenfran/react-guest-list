@@ -1,7 +1,4 @@
 import { useEffect, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid'; // Import library to create unique IDs
-
-uuidv4(); // Call the function
 
 const baseUrl = 'https://v7pqqz-4000.csb.app';
 
@@ -32,15 +29,12 @@ export default function App() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify([
-        ...guests,
-        { id: uuidv4(), guest: guest, attending: false },
-      ]),
+      body: JSON.stringify({ guest: guest, attending: false }),
     });
     const createdGuest = await response.json();
     console.log(createdGuest);
 
-    setGuests([...guests, { id: uuidv4(), guest: guest, attending: false }]);
+    setGuests([...guests, { guest: guest, attending: false }]);
     console.log(guests);
 
     addGuest(firstName + ' ' + lastName).catch((error) => console.log(error));
