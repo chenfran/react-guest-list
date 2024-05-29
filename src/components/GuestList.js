@@ -1,13 +1,39 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid'; // Import library to create unique IDs
 import Guest from './Guest';
 import GuestForm from './GuestForm';
 
 uuidv4(); // Call the function
 
+// const baseUrl = 'http://localhost:4000';
+
 // GuestList is the main component
 export default function GuestList() {
   const [guests, setGuests] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // useEffect(() => {
+  //   async function firstRenderFetch() {
+  //     const response = await fetch(baseUrl, {
+  //       method: 'GET',
+  //     });
+
+  //     const data = await response.json(); // Read the response and create a JS object with the data from the body
+
+  //     setGuests([]);
+  //     setIsLoading(false); // after fetch is finished isLoading is false
+  //     console.log('data', data);
+  //   }
+
+  //   firstRenderFetch().catch((error) => {
+  //     console.log(error);
+  //   });
+  // }, []);
+
+  // // Create a loading state if loading is true
+  // if (isLoading) {
+  //   return <h1>Loading...</h1>;
+  // }
 
   function addGuest(guest) {
     // Create a copy of guests with '...guests', and add id, name and the status completed
