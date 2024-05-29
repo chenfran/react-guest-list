@@ -23,21 +23,28 @@ export default function App() {
   }, []);
 
   // POST Method to send information to the API
-  async function addGuest(guest) {
+  async function addGuest() {
+    const newGuestInfo = {
+      firstName: firstName,
+      lastName: lastName,
+      attending: false,
+    };
+
     const response = await fetch(`${baseUrl}/guests`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ guest: guest, attending: false }),
+      body: JSON.stringify(newGuestInfo),
     });
+
     const createdGuest = await response.json();
     console.log(createdGuest);
 
-    setGuests([...guests, { guest: guest, attending: false }]);
-    console.log(guests);
+    const newGuestList = [...guests, createdGuest];
 
-    addGuest(firstName + ' ' + lastName).catch((error) => console.log(error));
+    setGuests(newGuestList);
+
     setFirstName('');
     setLastName('');
   }
