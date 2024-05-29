@@ -87,6 +87,10 @@ One of the key differences between e.currentTarget and e.target is that the valu
 
 ### Delete Functionality in React
 
+- In the Delete function, the filter method is used to iterate through the list of guests and retain only those guests whose ID does not match the passed ID, i.e., removing the guest to be deleted.
+
+- Return: The filter method returns a new list containing only the remaining guests after the guest with the specified ID has been removed.
+
 ### Function "attendingStatus"
 
 - Parameter: The function expects an id, which is the unique identifier of the guest whose attendance status is to be changed.
