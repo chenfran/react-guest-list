@@ -87,6 +87,18 @@ One of the key differences between e.currentTarget and e.target is that the valu
 
 ### Delete Functionality in React
 
+### Function "attendingStatus"
+
+- Parameter: The function expects an id, which is the unique identifier of the guest whose attendance status is to be changed.
+
+- Finding the guest: First, the guest with the specified ID is found from the guests list to determine their current attendance status.
+
+- Toggling the attendance status: The current attendance status of the guest is reversed. If the guest was previously present, they are marked as absent, and vice versa.
+
+- Updating the state: The guest's attendance status is updated locally in the application by using the setGuests function to update the guests list. This changes the attendance status of the selected guest while leaving the other guests unchanged.
+
+- Updating data on the server: After the local state has been updated, a PUT request is sent to the API to save the changed attendance status of the guest on the server.
+
 ## TODOs
 
 - [x] Create a mockup on figma
