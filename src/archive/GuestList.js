@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid'; // Import library to create unique IDs
 import Guest from './Guest';
 import GuestForm from './GuestForm';
