@@ -42,11 +42,11 @@ export default function AppCloneTwo() {
       body: JSON.stringify(dataGuest),
     });
     const createdGuest = await response.json();
+    console.log('createdGuest', createdGuest);
 
     const newGuests = [...guests];
     newGuests.push(createdGuest);
     setGuests(newGuests);
-    console.log('createdGuest', createdGuest);
     console.log('newGuests', newGuests);
 
     setFirstName('');
@@ -54,25 +54,28 @@ export default function AppCloneTwo() {
   }
 
   // PUT Method to update information
-  // async function putGuest(id) {
-  //   const response = await fetch(`${baseUrl}/guests/${id}`, {
-  //     method: 'PUT',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({ attending: true }),
-  //   });
-  //   const updatedGuest = await response.json();
-  //   console.log('PUT', updatedGuest);
-  // }
+  async function putGuest(id, attending) {
+    const response = await fetch(`${baseUrl}/guests/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ attending }),
+    });
+    const updatedGuest = await response.json();
+    console.log('updatedGuest', updatedGuest);
+  }
 
-  function toggleAttended(id) {
+  function attendingStatus(id) {
+    const people = guests.find((person) => person.id === id);
+    const newAttendingStatus = !people.attending;
+
     setGuests(
       guests.map((guest) =>
-        guest.id === id ? { ...guest, attending: !guest.attending } : guest,
+        guest.id === id ? { ...guest, attending: newAttendingStatus } : guest,
       ),
     );
-    // putGuest(id).catch((error) => console.log(error));
+    putGuest(id, newAttendingStatus).catch((error) => console.log(error));
   }
 
   // DELETE Method to delete information
@@ -81,7 +84,7 @@ export default function AppCloneTwo() {
       method: 'DELETE',
     });
     const deletedGuest = await response.json();
-    console.log(deletedGuest);
+    console.log('deletedGuest', deletedGuest);
 
     setGuests(guests.filter((guest) => guest.id !== id));
   }
@@ -120,10 +123,12 @@ export default function AppCloneTwo() {
           <input
             aria-label={`${firstName} ${lastName} attending status`}
             type="checkbox"
-            onClick={() => toggleAttended(guest.id)}
+            checked={guest.attending}
+            onChange={() => attendingStatus(guest.id, guest.attending)}
           />
 
           <span>{guest.attending ? 'attending' : 'not attending'} </span>
+
           <span>
             {guest.firstName} {guest.lastName}
           </span>
