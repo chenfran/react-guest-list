@@ -120,45 +120,31 @@ export default function App() {
           <button>Add Guest</button>
         </form>
       </div>
-      <div data-test-id="guest">
-        <table>
-          <tbody>
-            <tr>
-              <th>Attending Status</th>
-              <th>Name</th>
-              <th>Actions</th>
-            </tr>
-            {guests.map((guest) => (
-              <tr key={`guest-${guest.id}`}>
-                <td>
-                  <input
-                    aria-label={`${firstName} ${lastName} attending status`}
-                    type="checkbox"
-                    checked={guest.attending}
-                    onChange={() => attendingStatus(guest.id, guest.attending)}
-                  />
-                  <span>
-                    {guest.attending ? 'attending' : 'not attending'}{' '}
-                  </span>
-                </td>
-                <td>
-                  <span>
-                    {guest.firstName} {guest.lastName}
-                  </span>
-                </td>
-                <td>
-                  <button
-                    aria-label={`Remove ${guest.firstName} ${guest.lastName}`}
-                    onClick={() => deleteGuest(guest.id)}
-                  >
-                    Remove
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      {guests.map((guest) => (
+        <div data-test-id="guest" key={`guest-${guest.id}`}>
+          <input
+            aria-label={`${firstName} ${lastName} attending status`}
+            type="checkbox"
+            checked={guest.attending}
+            onChange={() => attendingStatus(guest.id, guest.attending)}
+          />
+
+          <span>{guest.attending ? 'attending' : 'not attending'} </span>
+
+          <span>
+            {guest.firstName} {guest.lastName}
+          </span>
+
+          <div>
+            <button
+              aria-label={`Remove ${guest.firstName} ${guest.lastName}`}
+              onClick={() => deleteGuest(guest.id)}
+            >
+              Remove
+            </button>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
