@@ -90,7 +90,7 @@ export default function App() {
   }
 
   return (
-    <div data-test-id="guest">
+    <div>
       <h1>Add guests to your PARTEY!</h1>
       <div>
         <form onSubmit={(event) => event.preventDefault()}>
@@ -121,7 +121,7 @@ export default function App() {
         </form>
       </div>
       {guests.map((guest) => (
-        <div key={`guest-${guest.id}`}>
+        <div data-test-id="guest" key={`guest-${guest.id}`}>
           <input
             aria-label={`${firstName} ${lastName} attending status`}
             type="checkbox"
