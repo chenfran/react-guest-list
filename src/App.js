@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import styles from './App.module.scss';
 
 const baseUrl = 'https://v7pqqz-4000.csb.app';
 
@@ -90,12 +91,22 @@ export default function App() {
   }
 
   return (
-    <div>
-      <h1>Add guests to your PARTEY!</h1>
-      <div>
-        <form onSubmit={(event) => event.preventDefault()}>
+    <div className={styles.container}>
+      <section className={styles.headerSection}>
+        <div>
+          <div>
+            <h1>PARTEY!</h1>
+          </div>
+        </div>
+      </section>
+      <div className={styles.formContainer}>
+        <form
+          className={styles.form}
+          onSubmit={(event) => event.preventDefault()}
+        >
           <label htmlFor="First name">First name</label>
           <input
+            className={styles.inputFields}
             id="First name"
             name="First name"
             value={firstName}
@@ -105,6 +116,7 @@ export default function App() {
           />
           <label htmlFor="Last name">Last name</label>
           <input
+            className={styles.inputFields}
             id="Last name"
             name="Last name"
             value={lastName}
@@ -117,34 +129,41 @@ export default function App() {
               }
             }}
           />
-          <button>Add Guest</button>
+          <button className={styles.addGuestButton}>Add Guest</button>
         </form>
       </div>
-      {guests.map((guest) => (
-        <div data-test-id="guest" key={`guest-${guest.id}`}>
-          <input
-            aria-label={`${firstName} ${lastName} attending status`}
-            type="checkbox"
-            checked={guest.attending}
-            onChange={() => attendingStatus(guest.id, guest.attending)}
-          />
-
-          <span>{guest.attending ? 'attending' : 'not attending'} </span>
-
-          <span>
-            {guest.firstName} {guest.lastName}
-          </span>
-
-          <div>
+      <div className={styles.guestListContainer}>
+        {guests.map((guest) => (
+          <div
+            className={styles.guestList}
+            data-test-id="guest"
+            key={`guest-${guest.id}`}
+          >
+            <input
+              aria-label={`${firstName} ${lastName} attending status`}
+              type="checkbox"
+              checked={guest.attending}
+              onChange={() => attendingStatus(guest.id, guest.attending)}
+            />
+            <span
+              className={`${guest.attending ? styles.attending : styles.notAttending}`}
+            >
+              {guest.attending ? 'ATTENDING' : 'NOT ATTENDING'}
+            </span>
+            <p className={styles.item}>
+              {guest.firstName} {guest.lastName}
+            </p>
             <button
+              className={styles.removeButton}
               aria-label={`Remove ${guest.firstName} ${guest.lastName}`}
               onClick={() => deleteGuest(guest.id)}
             >
               Remove
             </button>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+      <footer>Created by Franziska Chen, Vienna 2024</footer>
     </div>
   );
 }
