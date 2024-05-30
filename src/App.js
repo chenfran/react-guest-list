@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './App.module.scss';
+import { ReactComponent as CocktailSvg } from './svg/cocktail-svgrepo-com.svg';
 
 const baseUrl = 'https://v7pqqz-4000.csb.app';
 
@@ -91,77 +92,80 @@ export default function App() {
   }
 
   return (
-    <div className={styles.container}>
-      <section className={styles.headerSection}>
-        <div>
+    <div>
+      <CocktailSvg className={styles.cocktailSvg} />
+      <div className={styles.container}>
+        <section className={styles.headerSection}>
           <div>
-            <h1>PARTEY!</h1>
+            <div>
+              <h1>Registration</h1>
+            </div>
           </div>
-        </div>
-      </section>
-      <div className={styles.formContainer}>
-        <form
-          className={styles.form}
-          onSubmit={(event) => event.preventDefault()}
-        >
-          <label htmlFor="First name">First name</label>
-          <input
-            className={styles.inputFields}
-            id="First name"
-            name="First name"
-            value={firstName}
-            disabled={isLoading}
-            placeholder="First name"
-            onChange={(event) => setFirstName(event.target.value)}
-          />
-          <label htmlFor="Last name">Last name</label>
-          <input
-            className={styles.inputFields}
-            id="Last name"
-            name="Last name"
-            value={lastName}
-            disabled={isLoading}
-            placeholder="Last name"
-            onChange={(event) => setLastName(event.target.value)}
-            onKeyDown={(event) => {
-              if (event.key === 'Enter') {
-                addGuest().catch((error) => console.log(error));
-              }
-            }}
-          />
-          <button className={styles.addGuestButton}>Add Guest</button>
-        </form>
-      </div>
-      <div className={styles.guestListContainer}>
-        {guests.map((guest) => (
-          <div
-            className={styles.guestList}
-            data-test-id="guest"
-            key={`guest-${guest.id}`}
+        </section>
+        <div className={styles.formContainer}>
+          <form
+            className={styles.form}
+            onSubmit={(event) => event.preventDefault()}
           >
+            <label htmlFor="First name">First name</label>
             <input
-              aria-label={`${firstName} ${lastName} attending status`}
-              type="checkbox"
-              checked={guest.attending}
-              onChange={() => attendingStatus(guest.id, guest.attending)}
+              className={styles.inputFields}
+              id="First name"
+              name="First name"
+              value={firstName}
+              disabled={isLoading}
+              placeholder="First name"
+              onChange={(event) => setFirstName(event.target.value)}
             />
-            <span
-              className={`${guest.attending ? styles.attending : styles.notAttending}`}
+            <label htmlFor="Last name">Last name</label>
+            <input
+              className={styles.inputFields}
+              id="Last name"
+              name="Last name"
+              value={lastName}
+              disabled={isLoading}
+              placeholder="Last name"
+              onChange={(event) => setLastName(event.target.value)}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter') {
+                  addGuest().catch((error) => console.log(error));
+                }
+              }}
+            />
+            <button className={styles.addGuestButton}>Add Guest</button>
+          </form>
+        </div>
+        <div className={styles.guestListContainer}>
+          {guests.map((guest) => (
+            <div
+              className={styles.guestList}
+              data-test-id="guest"
+              key={`guest-${guest.id}`}
             >
-              {guest.attending ? 'ATTENDING' : 'NOT ATTENDING'}
-            </span>
-            <p className={styles.item}>
-              {guest.firstName} {guest.lastName}
-            </p>
-            <button
-              className={styles.removeButton}
-              aria-label={`Remove ${guest.firstName} ${guest.lastName}`}
-              onClick={() => deleteGuest(guest.id)}
-            >
-              Remove
-            </button>
-          </div>
-        ))}
+              <input
+                aria-label={`${firstName} ${lastName} attending status`}
+                type="checkbox"
+                checked={guest.attending}
+                onChange={() => attendingStatus(guest.id, guest.attending)}
+              />
+              <span
+                className={`${guest.attending ? styles.attending : styles.notAttending}`}
+              >
+                {guest.attending ? 'ATTENDING' : 'NOT ATTENDING'}
+              </span>
+              <p className={styles.item}>
+                {guest.firstName} {guest.lastName}
+              </p>
+              <button
+                className={styles.removeButton}
+                aria-label={`Remove ${guest.firstName} ${guest.lastName}`}
+                onClick={() => deleteGuest(guest.id)}
+              >
+                Remove
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
       <footer>Created by Franziska Chen, Vienna 2024</footer>
     </div>
