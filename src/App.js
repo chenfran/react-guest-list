@@ -96,11 +96,7 @@ export default function App() {
       <CocktailSvg className={styles.cocktailSvg} />
       <div className={styles.container}>
         <section className={styles.headerSection}>
-          <div>
-            <div>
-              <h1>Registration</h1>
-            </div>
-          </div>
+          <h1>Registration</h1>
         </section>
         <div className={styles.formContainer}>
           <form
@@ -135,23 +131,28 @@ export default function App() {
             <button className={styles.addGuestButton}>Add Guest</button>
           </form>
         </div>
-        <div className={styles.guestListContainer} data-test-id="guest">
-          {guests.map((guest) => (
-            <div className={styles.guestList} key={`guest-${guest.id}`}>
-              <input
-                aria-label={`${firstName} ${lastName} attending status`}
-                type="checkbox"
-                checked={guest.attending}
-                onChange={() => attendingStatus(guest.id, guest.attending)}
-              />
-              <span
-                className={`${guest.attending ? styles.attending : styles.notAttending}`}
-              >
-                {guest.attending ? 'ATTENDING' : 'NOT ATTENDING'}
-              </span>
-              <p className={styles.item}>
-                {guest.firstName} {guest.lastName}
-              </p>
+        {guests.map((guest) => (
+          <div
+            className={styles.guestList}
+            key={`guest-${guest.id}`}
+            data-test-id="guest"
+          >
+            <input
+              aria-label={`${firstName} ${lastName} attending status`}
+              type="checkbox"
+              checked={guest.attending}
+              onChange={() => attendingStatus(guest.id, guest.attending)}
+            />
+            <span
+              className={`${guest.attending ? styles.attending : styles.notAttending}`}
+            >
+              {guest.attending ? 'ATTENDING' : 'NOT ATTENDING'}
+            </span>
+            <p className={styles.item}>
+              {guest.firstName} {guest.lastName}
+            </p>
+
+            <div>
               <button
                 className={styles.removeButton}
                 aria-label={`Remove ${guest.firstName} ${guest.lastName}`}
@@ -160,8 +161,8 @@ export default function App() {
                 Remove
               </button>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
       <footer>Created by Franziska Chen, Vienna 2024</footer>
     </div>
