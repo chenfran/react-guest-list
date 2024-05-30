@@ -9,7 +9,6 @@
 }
 
 body {
-  // background: linear-gradient(60deg, #c9b2c5, #afb6e5);
   background: linear-gradient(45deg, #fe3a4a, #ff6b6b);
   display: flex;
   justify-content: center;
@@ -33,8 +32,7 @@ body {
 }
 
 h1 {
-  // color: #8758ff;
-  color: #fec501;
+  color: #4901ff;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   font-size: 3rem;
@@ -60,12 +58,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-// .form {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: flex-start;
-// }
-
 label {
   margin-bottom: 0.5rem;
   font-weight: 600;
@@ -76,13 +68,9 @@ label {
   outline: none;
   border: 1px solid #ccc;
   border-radius: 5px;
-  // background: #a385ef;
   background: #f9f9f9;
   padding: 0.5rem;
-  // margin-top: 1rem;
-  // margin-right: 1rem;
   margin-bottom: 1rem;
-  // margin-left: 0.3rem;
   width: 100%;
   max-width: 900px;
   color: #333;
@@ -93,7 +81,6 @@ label {
 }
 
 .addGuestButton {
-  // background: #8758ff;
   background: #fec501;
   color: #333;
   border: none;
@@ -131,6 +118,7 @@ label {
 .attending {
   composes: attendingStatus;
   color: green;
+  font-weight: 600;
 }
 
 .notAttending {
@@ -146,14 +134,8 @@ label {
 
 .removeButton {
   color: #333;
-  // background: #ff5c5c;
-  // border: solid 0.5px #ff5c5c;
   border: solid 0.5px #fec501;
-  // font-size: 0.5rem;
   border-radius: 5px;
-  // height: 1rem;
-  // width: 2.8rem;
-  // text-align: center;
   padding: 0.5rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
