@@ -136,7 +136,9 @@ export default function App() {
                 }
               }}
             />
-            <button className={styles.addGuestButton}>Add Guest</button>
+            <button onClick={addGuest} className={styles.addGuestButton}>
+              Add Guest
+            </button>
           </form>
         </div>
 
