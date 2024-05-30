@@ -135,13 +135,9 @@ export default function App() {
             <button className={styles.addGuestButton}>Add Guest</button>
           </form>
         </div>
-        <div className={styles.guestListContainer}>
+        <div className={styles.guestListContainer} data-test-id="guest">
           {guests.map((guest) => (
-            <div
-              className={styles.guestList}
-              data-test-id="guest"
-              key={`guest-${guest.id}`}
-            >
+            <div className={styles.guestList} key={`guest-${guest.id}`}>
               <input
                 aria-label={`${firstName} ${lastName} attending status`}
                 type="checkbox"
