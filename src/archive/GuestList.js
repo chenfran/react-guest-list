@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid'; // Import library to create unique IDs
 import Guest from './Guest';
 import GuestForm from './GuestForm';
 
-uuidv4();
+uuidv4(); // Call the function
 
 export default function GuestList() {
   const [guests, setGuests] = useState([]);
@@ -32,6 +32,7 @@ export default function GuestList() {
   return (
     <div>
       <h1>Add guests to your PARTEY!</h1>
+      {/* Add component 'GuestForm' with the prop addGuest */}
       <GuestForm addGuest={addGuest} />
       {guests.map((guest) => (
         // Add component 'Guest' with the props name, key, toggleAttended, deleteGuest

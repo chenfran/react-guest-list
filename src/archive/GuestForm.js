@@ -1,12 +1,18 @@
 import { useState } from 'react';
 
 export default function GuestForm({ addGuest }) {
+  // Use prop addGuest
+
+  // Create state variables they are called firstName and lastName
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
+  // Create a function to add a user
   function handleSubmit(event) {
     event.preventDefault();
-    addGuest(firstName + ' ' + lastName);
+    addGuest(firstName + ' ' + lastName); // Call the addGuest function
+
+    // Clear input fields
     setFirstName('');
     setLastName('');
   }

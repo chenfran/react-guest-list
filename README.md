@@ -47,6 +47,8 @@ This chapter answers the following questions regarding this project:
 
 ## Additional comments on the code
 
+### 3 Steps to manipulate / update an existing array
+
 1. Create a copy of the current state
 2. Update the copy created in step 1
 3. Set the state to the copy of the old state
