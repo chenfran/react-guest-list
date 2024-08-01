@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import styles from './App.module.scss';
-import { ReactComponent as CocktailSvg } from './svg/cocktail-svgrepo-com.svg';
 
 const baseUrl = 'https://v7pqqz-4000.csb.app';
 
@@ -99,7 +98,11 @@ export default function App() {
 
   return (
     <div>
-      <CocktailSvg className={styles.cocktailSvg} />
+      <img
+        src="/cocktail-svgrepo-com.svg"
+        alt="Cocktails"
+        className={styles.cocktailSvg}
+      />
 
       <div className={styles.container}>
         <section className={styles.headerSection}>
