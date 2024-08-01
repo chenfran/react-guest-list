@@ -68,17 +68,19 @@ export default function App() {
   }
 
   // Create function to update guest's attendance status from guest from true to false and vis versa
-  function attendanceStatus(id) {
+  function updateGuestAttendance(id) {
     const people = guests.find((person) => person.id === id); // Find all IDs that match the ID being sent
-    const newAttendanceStatus = !people.attending; // Reverse the attendance status of person.id found
+    const newUpdateGuestAttendance = !people.attending; // Reverse the attendance status of person.id found
 
     setGuests(
       guests.map((guest) =>
-        guest.id === id ? { ...guest, attending: newAttendanceStatus } : guest,
+        guest.id === id
+          ? { ...guest, attending: newUpdateGuestAttendance }
+          : guest,
       ),
     );
     // Call the putGuest function to update the information in the API
-    putGuest(id, newAttendanceStatus).catch((error) => console.log(error));
+    putGuest(id, newUpdateGuestAttendance).catch((error) => console.log(error));
   }
 
   // DELETE request to delete information
@@ -150,7 +152,7 @@ export default function App() {
               aria-label={`${firstName} ${lastName} attending status`}
               type="checkbox"
               checked={guest.attending}
-              onChange={() => attendanceStatus(guest.id, guest.attending)}
+              onChange={() => updateGuestAttendance(guest.id, guest.attending)}
             />
             <span
               className={`${guest.attending ? styles.attending : styles.notAttending}`}
