@@ -65,6 +65,7 @@ export default function App() {
       body: JSON.stringify({ attending }),
     });
     const updatedGuest = await response.json();
+    console.log(updatedGuest);
   }
 
   // Create function to update guest's attendance status from guest from true to false and vis versa
@@ -89,6 +90,7 @@ export default function App() {
       method: 'DELETE',
     });
     const deletedGuest = await response.json();
+    console.log(deletedGuest);
 
     setGuests(guests.filter((guest) => guest.id !== id)); // Delete the ID if it does not match the ID being sent
   }
