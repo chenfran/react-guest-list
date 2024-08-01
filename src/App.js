@@ -14,7 +14,6 @@ export default function App() {
     async function getGuests() {
       const response = await fetch(`${baseUrl}/guests`);
       const data = await response.json();
-      console.log('GET data', data);
 
       setGuests(data);
 
@@ -45,13 +44,11 @@ export default function App() {
       body: JSON.stringify(dataGuest),
     });
     const createdGuest = await response.json();
-    console.log('createdGuest', createdGuest);
 
     // Update an existing array in react
     const newGuests = [...guests];
     newGuests.push(createdGuest);
     setGuests(newGuests);
-    console.log('newGuests', newGuests);
 
     // Clear input fields
     setFirstName('');
@@ -68,7 +65,6 @@ export default function App() {
       body: JSON.stringify({ attending }),
     });
     const updatedGuest = await response.json();
-    console.log('updatedGuest', updatedGuest);
   }
 
   // Create function to update guest's attendance status from guest from true to false and vis versa
@@ -91,7 +87,6 @@ export default function App() {
       method: 'DELETE',
     });
     const deletedGuest = await response.json();
-    console.log('deletedGuest', deletedGuest);
 
     setGuests(guests.filter((guest) => guest.id !== id)); // Delete the ID if it does not match the ID being sent
   }
